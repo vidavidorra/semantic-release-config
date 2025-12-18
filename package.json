@@ -1,6 +1,6 @@
 {
   "name": "@vidavidorra/semantic-release-config",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "semantic-release configuration",
   "keywords": [
     "semantic-release",
