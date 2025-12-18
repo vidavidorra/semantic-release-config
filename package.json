@@ -61,6 +61,9 @@
       "text-summary"
     ]
   },
+  "overrides": {
+    "conventional-changelog-conventionalcommits": ">=9.0.0"
+  },
   "dependencies": {
     "@semantic-release/changelog": "6.0.3",
     "@semantic-release/exec": "7.1.0",
