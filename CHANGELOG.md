@@ -1,3 +1,9 @@
+## [1.0.3](https://github.com/vidavidorra/semantic-release-config/compare/v1.0.2...v1.0.3) (2025-12-19)
+
+### Bug Fixes
+
+- remove `override` from a767760 and install `conventional-changelog-conventionalcommits` ([09693a5](https://github.com/vidavidorra/semantic-release-config/commit/09693a53916fc72aebc68b5c8a48a4bdbaff0762))
+
 ## [1.0.2](https://github.com/vidavidorra/semantic-release-config/compare/v1.0.1...v1.0.2) (2025-12-18)
 
 ### Bug Fixes
