@@ -76,10 +76,13 @@ test('"plugins" includes the release notes generator', (t) => {
   const [name, options] = config.plugins[1];
   t.is(name, '@semantic-release/release-notes-generator');
   t.is(options.preset, 'conventionalcommits');
+  t.not(options.presetConfig, undefined);
 });
 
 function releaseNotes(name: string) {
-  return config.plugins[1][1].rules.find((rule) => rule.type === name);
+  return config.plugins[1][1].presetConfig.types.find(
+    (rule) => rule.type === name,
+  );
 }
 
 const includesReleaseNotes = test.macro<[string]>({
