@@ -1,3 +1,9 @@
+## [1.0.4](https://github.com/vidavidorra/semantic-release-config/compare/v1.0.3...v1.0.4) (2025-12-25)
+
+### Bug Fixes
+
+- configure `release-note-generator` options using `presetConfig` ([28b4ea6](https://github.com/vidavidorra/semantic-release-config/commit/28b4ea62e928e0db18bec32d61f73fe494977c7b))
+
 ## [1.0.3](https://github.com/vidavidorra/semantic-release-config/compare/v1.0.2...v1.0.3) (2025-12-19)
 
 ### Bug Fixes
