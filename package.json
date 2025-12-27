@@ -72,7 +72,7 @@
     "@commitlint/cli": "20.2.0",
     "@vidavidorra/commitlint-config": "7.1.8",
     "@vidavidorra/eslint-config": "1.0.3",
-    "@vidavidorra/prettier-config": "1.0.4",
+    "@vidavidorra/prettier-config": "1.0.6",
     "ava": "6.4.1",
     "c8": "10.1.3",
     "eslint": "9.39.2",
