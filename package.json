@@ -70,7 +70,7 @@
   "devDependencies": {
     "@ava/typescript": "6.0.0",
     "@commitlint/cli": "20.4.2",
-    "@vidavidorra/commitlint-config": "7.1.12",
+    "@vidavidorra/commitlint-config": "7.1.15",
     "@vidavidorra/eslint-config": "1.0.4",
     "@vidavidorra/prettier-config": "1.0.7",
     "ava": "6.4.1",
