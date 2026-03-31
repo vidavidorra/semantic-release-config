@@ -3,13 +3,6 @@ import {type PluginSpec} from 'semantic-release';
 import * as plugin from './plugin/index.js';
 import config from './index.js';
 
-/**
- * Semantic-release accepts almost any configuration. This makes validating
- * the configuration, especially of the plugins, very difficult. The
- * configuration is also used in the CI/CD workflow, acting as an end-to-end
- * test of the configuration.
- */
-
 test('exports an object as "default"', (t) => {
   t.is(typeof config, 'object');
 });

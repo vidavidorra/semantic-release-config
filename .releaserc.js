@@ -1,2 +1,1 @@
-// eslint-disable-next-line n/file-extension-in-import
-export {default} from './src/index.ts';
+export {default} from './dist/npm.js';
