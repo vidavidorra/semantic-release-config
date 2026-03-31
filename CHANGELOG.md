@@ -1,3 +1,9 @@
+## [2.0.1](https://github.com/vidavidorra/semantic-release-config/compare/v2.0.0...v2.0.1) (2026-03-31)
+
+### Bug Fixes
+
+- the `npm` plugin `tarballDir` cannot be set to `false` ([41be6a7](https://github.com/vidavidorra/semantic-release-config/commit/41be6a76693dffe7aabe8dcf997b60bf50cf7e0e))
+
 ## [2.0.0](https://github.com/vidavidorra/semantic-release-config/compare/v1.0.4...v2.0.0) (2026-03-31)
 
 ### ⚠ BREAKING CHANGES
