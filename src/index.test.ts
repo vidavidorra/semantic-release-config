@@ -35,7 +35,7 @@ test(usesPlugin, config.plugins[3], 'formatChangelog');
 test(usesPlugin, config.plugins[5], 'git');
 
 test('uses the "npm" plugin without "tarballDir"', (t) => {
-  t.deepEqual(config.plugins[4], plugin.npm(false));
+  t.deepEqual(config.plugins[4], plugin.npm());
 });
 test('uses the "github" plugin without "assets"', (t) => {
   t.deepEqual(config.plugins[6], plugin.github());

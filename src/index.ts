@@ -8,7 +8,7 @@ const config = {
     plugin.releaseNotesGenerator,
     plugin.changelog,
     plugin.formatChangelog,
-    plugin.npm(false),
+    plugin.npm(),
     plugin.git,
     plugin.github(),
   ],
