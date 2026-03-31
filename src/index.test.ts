@@ -1,4 +1,6 @@
 import test from 'ava';
+import {type PluginSpec} from 'semantic-release';
+import * as plugin from './plugin/index.js';
 import config from './index.js';
 
 /**
@@ -22,115 +24,15 @@ test('"branches" include "beta" as prerelease', (t) => {
   t.deepEqual(config.branches.at(1), {name: 'beta', prerelease: true});
 });
 
-test('"plugins" includes the commit analyser', (t) => {
-  const [name, options] = config.plugins[0];
-  t.is(name, '@semantic-release/commit-analyzer');
-  t.is(options.preset, 'conventionalcommits');
+const usesPlugin = test.macro<[PluginSpec, keyof typeof plugin]>({
+  exec: (t, configPlugin, name) => t.is(configPlugin, plugin[name]),
+  title: (_, _a, name) => `uses the "${name}" plugin`,
 });
 
-function releaseRule(type: string, matchKey = false) {
-  return config.plugins[0][1].releaseRules.find((rule) =>
-    matchKey
-      ? Object.keys(rule).includes(type)
-      : 'type' in rule && rule.type === type,
-  );
-}
-
-test('releases breaking commits as major version', (t) => {
-  t.deepEqual(releaseRule('breaking', true), {
-    breaking: true,
-    release: 'major',
-  });
-});
-
-test('releases revert commits as patch version', (t) => {
-  t.deepEqual(releaseRule('revert', true), {revert: true, release: 'patch'});
-});
-
-const releasesCommitAs = test.macro<[string, string]>({
-  exec: (t, type, release) =>
-    t.is(releaseRule(type)?.release as string, release),
-  title: (_, type, release) =>
-    `releases "${type}" commits as ${release} version`,
-});
-
-test(releasesCommitAs, 'build', 'patch');
-test(releasesCommitAs, 'ci', 'patch');
-test(releasesCommitAs, 'docs', 'patch');
-test(releasesCommitAs, 'feat', 'minor');
-test(releasesCommitAs, 'fix', 'patch');
-test(releasesCommitAs, 'perf', 'patch');
-test(releasesCommitAs, 'refactor', 'patch');
-test(releasesCommitAs, 'revert', 'patch');
-test(releasesCommitAs, 'test', 'patch');
-
-test('does not release "chore" commits', (t) => {
-  t.deepEqual(releaseRule('chore'), {type: 'chore', release: false});
-});
-
-test('does not release "style" commits', (t) => {
-  t.deepEqual(releaseRule('style'), {type: 'style', release: false});
-});
-
-test('"plugins" includes the release notes generator', (t) => {
-  const [name, options] = config.plugins[1];
-  t.is(name, '@semantic-release/release-notes-generator');
-  t.is(options.preset, 'conventionalcommits');
-  t.not(options.presetConfig, undefined);
-});
-
-function releaseNotes(name: string) {
-  return config.plugins[1][1].presetConfig.types.find(
-    (rule) => rule.type === name,
-  );
-}
-
-const includesReleaseNotes = test.macro<[string]>({
-  exec(t, type) {
-    t.is(releaseNotes(type)?.type as string, type);
-    t.deepEqual(Object.keys(releaseNotes(type) ?? {}), ['type', 'section']);
-  },
-  title: (_, type) => `release notes include "${type}" commits`,
-});
-
-test(includesReleaseNotes, 'build');
-test(includesReleaseNotes, 'ci');
-test(includesReleaseNotes, 'docs');
-test(includesReleaseNotes, 'feat');
-test(includesReleaseNotes, 'fix');
-test(includesReleaseNotes, 'perf');
-test(includesReleaseNotes, 'refactor');
-test(includesReleaseNotes, 'revert');
-test(includesReleaseNotes, 'style');
-test(includesReleaseNotes, 'test');
-
-test('release notes do not include "chore" commits', (t) => {
-  t.deepEqual(releaseNotes('chore'), {
-    type: 'chore',
-    section: 'Miscellaneous Chores',
-    hidden: true,
-  });
-});
-
-test('"plugins" includes changelog generation and formatting', (t) => {
-  t.is(config.plugins[2], '@semantic-release/changelog');
-  const [name, options] = config.plugins[3];
-  t.is(name, '@semantic-release/exec');
-  t.deepEqual(options, {prepareCmd: 'prettier --write CHANGELOG.md'});
-});
-
-test('"plugins" includes npm (packaging)', (t) => {
-  const [name, options] = config.plugins[4];
-  t.is(name, '@semantic-release/npm');
-  t.deepEqual(options, {tarballDir: 'dist'});
-});
-
-test('"plugins" includes Git', (t) => {
-  t.is(config.plugins[5], '@semantic-release/git');
-});
-
-test('"plugins" includes GitHub release', (t) => {
-  const [name, options] = config.plugins[6];
-  t.is(name, '@semantic-release/github');
-  t.deepEqual(options, {assets: 'dist/*.tgz'});
-});
+test(usesPlugin, config.plugins[0], 'commitAnalyser');
+test(usesPlugin, config.plugins[1], 'releaseNotesGenerator');
+test(usesPlugin, config.plugins[2], 'changelog');
+test(usesPlugin, config.plugins[3], 'formatChangelog');
+test(usesPlugin, config.plugins[4], 'npm');
+test(usesPlugin, config.plugins[5], 'git');
+test(usesPlugin, config.plugins[6], 'github');
