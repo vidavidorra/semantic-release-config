@@ -1,8 +1,7 @@
 import {type PluginSpec} from 'semantic-release';
 
-const npm = [
-  '@semantic-release/npm',
-  {tarballDir: 'dist'},
-] as const satisfies PluginSpec;
+function npm(tarballDir: string | false) {
+  return ['@semantic-release/npm', {tarballDir}] as const satisfies PluginSpec;
+}
 
 export {npm};

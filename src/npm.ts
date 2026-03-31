@@ -8,9 +8,9 @@ const config = {
     plugin.releaseNotesGenerator,
     plugin.changelog,
     plugin.formatChangelog,
-    plugin.npm(false),
+    plugin.npm('dist'),
     plugin.git,
-    plugin.github(),
+    plugin.github('dist/*.tgz'),
   ],
 } as const satisfies Options;
 

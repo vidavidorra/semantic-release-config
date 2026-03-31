@@ -5,9 +5,10 @@
 - Analyses commits following the [Conventional Commits 1.0.0](https://www.conventionalcommits.org/en/v1.0.0/) specification.
 - Generates release notes following the [Conventional Commits 1.0.0](https://www.conventionalcommits.org/en/v1.0.0/) specification.
 - Formats the changelog using [**Prettier**](https://prettier.io/).
-- Deploys to [**npm**](https://www.npmjs.com/), from the `dist` directory.
+- Deploys to [**npm**](https://www.npmjs.com/), from the `dist` directory, with the `npm` entry point.
 - Creates a release commit, updating the version in the `package.json` and the changelog.
-- Creates a [**GitHub**](https://github.com/) release, with the [**npm**](https://www.npmjs.com/) package tarball as an asset.
+- Creates a [**GitHub**](https://github.com/) release.
+- Adds the [**npm**](https://www.npmjs.com/) package tarball as a [**GitHub**](https://github.com/) release asset, with the `npm` entry point.
 
 ---
 
@@ -39,6 +40,16 @@ Use this configuration in your project's [**semantic-release**][semantic-release
 {
   "release": {
     "extends": "@vidavidorra/semantic-release-config"
+  }
+}
+```
+
+The `npm` entry point publishes the package to the registry, if allowed by the `private` setting in the `package.json`, and attaches the tarball to the GitHub release. That is in addition to the config of the default entry point.
+
+```json
+{
+  "release": {
+    "extends": "@vidavidorra/semantic-release-config/npm"
   }
 }
 ```

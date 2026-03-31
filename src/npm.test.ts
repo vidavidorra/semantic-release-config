@@ -1,14 +1,7 @@
 import test from 'ava';
 import {type PluginSpec} from 'semantic-release';
 import * as plugin from './plugin/index.js';
-import config from './index.js';
-
-/**
- * Semantic-release accepts almost any configuration. This makes validating
- * the configuration, especially of the plugins, very difficult. The
- * configuration is also used in the CI/CD workflow, acting as an end-to-end
- * test of the configuration.
- */
+import config from './npm.js';
 
 test('exports an object as "default"', (t) => {
   t.is(typeof config, 'object');
@@ -41,9 +34,9 @@ test(usesPlugin, config.plugins[2], 'changelog');
 test(usesPlugin, config.plugins[3], 'formatChangelog');
 test(usesPlugin, config.plugins[5], 'git');
 
-test('uses the "npm" plugin without "tarballDir"', (t) => {
-  t.deepEqual(config.plugins[4], plugin.npm(false));
+test('uses the "npm" plugin with "tarballDir: dist"', (t) => {
+  t.deepEqual(config.plugins[4], plugin.npm('dist'));
 });
-test('uses the "github" plugin without "assets"', (t) => {
-  t.deepEqual(config.plugins[6], plugin.github());
+test('uses the "github" plugin with "assets: dist/*.tgz"', (t) => {
+  t.deepEqual(config.plugins[6], plugin.github('dist/*.tgz'));
 });

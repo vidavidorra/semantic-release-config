@@ -1,8 +1,11 @@
 import {type PluginSpec} from 'semantic-release';
 
-const github = [
-  '@semantic-release/github',
-  {assets: 'dist/*.tgz'},
-] as const satisfies PluginSpec;
+const name = '@semantic-release/github';
+
+function github(assets?: string | string[]) {
+  return (
+    assets === undefined ? name : ([name, {assets}] as const)
+  ) satisfies PluginSpec;
+}
 
 export {github};

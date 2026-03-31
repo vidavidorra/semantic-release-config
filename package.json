@@ -19,7 +19,10 @@
   "license": "GPL-3.0-or-later",
   "author": "Jeroen de Bruijn",
   "type": "module",
-  "exports": "./dist/index.js",
+  "exports": {
+    ".": "./dist/index.js",
+    "./npm": "./dist/npm.js"
+  },
   "files": [
     "./dist/**/!(*.test).{js,d.ts,cjs}"
   ],
