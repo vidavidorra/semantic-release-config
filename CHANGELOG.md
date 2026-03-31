@@ -1,3 +1,25 @@
+## [2.0.0](https://github.com/vidavidorra/semantic-release-config/compare/v1.0.4...v2.0.0) (2026-03-31)
+
+### ⚠ BREAKING CHANGES
+
+- The default import no longer publishes the npm package. To keep the current behaviour, extend `@vidavidorra/semantic-release-config/npm`.
+
+### Continuous Integration
+
+- use release config from `./dist/npm.js`, using the `npm` entrypoint ([3ce806a](https://github.com/vidavidorra/semantic-release-config/commit/3ce806a54a4b2e5207b353a0115ff2187b63c5d3))
+
+### Features
+
+- add `npm` export to release npm packages and add GitHub assets ([98a71f3](https://github.com/vidavidorra/semantic-release-config/commit/98a71f3d76173fb6a11f079938c887ac6dc17985))
+
+### Code Refactoring
+
+- move all plugin configs to a plugin directory ([c3b3e2b](https://github.com/vidavidorra/semantic-release-config/commit/c3b3e2b1014111b4fcb5c1f1658b040ce8151fe8))
+
+### Tests
+
+- validate the new plugins are used by reference ([92714a8](https://github.com/vidavidorra/semantic-release-config/commit/92714a8c439a7a5eef09e8a0de62cbd93674d5a7))
+
 ## [1.0.4](https://github.com/vidavidorra/semantic-release-config/compare/v1.0.3...v1.0.4) (2025-12-25)
 
 ### Bug Fixes
