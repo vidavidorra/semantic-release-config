@@ -13,21 +13,21 @@ permissions:
   pull-requests: write
 jobs:
   lint-commit-messages:
-    uses: vidavidorra/.github/.github/workflows/lint-commit-messages.yml@cb7cd9678bc35e22d7b70209f41bebe2e442f8a7 # v8.0.22
+    uses: vidavidorra/.github/.github/workflows/lint-commit-messages.yml@ed57cb22d3350c6f2d801836f54c77cb19af172c # v8.1.11
   lint:
-    uses: vidavidorra/.github/.github/workflows/node-lint.yml@cb7cd9678bc35e22d7b70209f41bebe2e442f8a7 # v8.0.22
+    uses: vidavidorra/.github/.github/workflows/node-lint.yml@ed57cb22d3350c6f2d801836f54c77cb19af172c # v8.1.11
   build:
-    uses: vidavidorra/.github/.github/workflows/node-build.yml@cb7cd9678bc35e22d7b70209f41bebe2e442f8a7 # v8.0.22
+    uses: vidavidorra/.github/.github/workflows/node-build.yml@ed57cb22d3350c6f2d801836f54c77cb19af172c # v8.1.11
   test:
-    uses: vidavidorra/.github/.github/workflows/node-test.yml@cb7cd9678bc35e22d7b70209f41bebe2e442f8a7 # v8.0.22
+    uses: vidavidorra/.github/.github/workflows/node-test.yml@ed57cb22d3350c6f2d801836f54c77cb19af172c # v8.1.11
   code-coverage:
-    uses: vidavidorra/.github/.github/workflows/node-test-coverage.yml@cb7cd9678bc35e22d7b70209f41bebe2e442f8a7 # v8.0.22
+    uses: vidavidorra/.github/.github/workflows/node-test-coverage.yml@ed57cb22d3350c6f2d801836f54c77cb19af172c # v8.1.11
     needs:
       - lint
       - build
       - test
   release:
-    uses: vidavidorra/.github/.github/workflows/release.yml@cb7cd9678bc35e22d7b70209f41bebe2e442f8a7 # v8.0.22
+    uses: vidavidorra/.github/.github/workflows/release.yml@ed57cb22d3350c6f2d801836f54c77cb19af172c # v8.1.11
     needs:
       - lint-commit-messages
       - lint
