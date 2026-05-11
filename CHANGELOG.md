@@ -1,3 +1,9 @@
+## [2.0.2](https://github.com/vidavidorra/semantic-release-config/compare/v2.0.1...v2.0.2) (2026-05-11)
+
+### Bug Fixes
+
+- **deps:** update dependency conventional-changelog-conventionalcommits to v9.3.1 ([824d426](https://github.com/vidavidorra/semantic-release-config/commit/824d42694f92ae10928e7e3f43acafd9a3901c11))
+
 ## [2.0.1](https://github.com/vidavidorra/semantic-release-config/compare/v2.0.0...v2.0.1) (2026-03-31)
 
 ### Bug Fixes
