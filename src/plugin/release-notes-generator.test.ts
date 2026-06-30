@@ -29,8 +29,9 @@ test('releases revert commits as patch version', (t) => {
 });
 
 const releasesCommitAs = test.macro<[string, string]>({
-  exec: (t, type, release) =>
-    t.is(releaseRule(type)?.release as string, release),
+  exec(t, type, release) {
+    t.is(releaseRule(type)?.release as string, release);
+  },
   title: (_, type, release) =>
     `releases "${type}" commits as ${release} version`,
 });
