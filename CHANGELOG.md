@@ -1,3 +1,5 @@
+## [2.0.4](https://github.com/vidavidorra/semantic-release-config/compare/v2.0.3...v2.0.4) (2026-07-08)
+
 ## [2.0.3](https://github.com/vidavidorra/semantic-release-config/compare/v2.0.2...v2.0.3) (2026-07-01)
 
 ## [2.0.2](https://github.com/vidavidorra/semantic-release-config/compare/v2.0.1...v2.0.2) (2026-05-11)
