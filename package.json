@@ -78,7 +78,7 @@
     "@vidavidorra/prettier-config": "1.0.7",
     "ava": "8.0.1",
     "c8": "11.0.0",
-    "eslint": "10.8.0",
+    "eslint": "10.8.1",
     "husky": "9.1.7",
     "lint-staged": "17.3.0",
     "prettier": "3.9.6",
